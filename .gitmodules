@@ -1,0 +1,6 @@
+[submodule "stylus-lib"]
+	path = stylus-lib
+	url = https://github.com/OffchainLabs/stylus-sdk-c
+[submodule "p256"]
+	path = p256
+	url = https://github.com/oreparaz/p256
