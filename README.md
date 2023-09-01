@@ -1,8 +1,12 @@
-## P256 verification using arbitrum stylus
+## P256 verification using Arbitrum stylus
 
 Examples of c code compiled to stylus to verify a ECDSA signature using a standard P256 Curve.
 
-This is important for many use cases, but faceid importantly.
+This is useful for many use cases because P.256/secp256r1/prime256v1 is much more common than the curve built into the EVM.
+
+As an example, Apple FaceID and webauthn signatures must be verified using this curve.
+
+This repo also includes a sample solidity contract to call the stylus contract.
 
 **IMPORTANT: this is not tested / audited, and likely has significant bugs**
 
@@ -36,12 +40,14 @@ this version is deployed at: 0xff92a41a7edb4af7862868031121dbdba3319270385ed3b8b
 ## Usage
 I included a simply econtract (caller.sol) to demonstrate how to call the deployed stylus contract. It also can be verified on their block explorer this way.
 
-Try using this on the sepolia stylus testnet: https://stylus-testnet-explorer.arbitrum.io/address/0xfdECC62c5ed1158B75e02aD9f38da34BBE87572A/write-contract#address-tabs
+Try using this on the sepolia stylus testnet, using a sample deploy of this contract.
+[View the contract in the block explorer](https://stylus-testnet-explorer.arbitrum.io/address/0xfdECC62c5ed1158B75e02aD9f38da34BBE87572A/write-contract#address-tabs)
 
+valid inputs:
+'''
 sig:        0x6c98b6809f6e2c7395c6c9f18a302821c5f60369d3abd192e9e5c4f607d518d34a9d74a0f44c61031330a7e3f27908f5c589fe6427db7c3f3f7409559e500c3c
 pubkey:     0x045616ab0df85ac89cc853b84e53cab535224a7dbc39270276dda800853ee8ae9b68b95359704f87e023424d5d842f0821d88ce01fb6a81a6a1c878a81130c6168
 message:    0x68690a
-
-this works: (see a sample txn here: https://stylus-testnet-explorer.arbitrum.io/tx/0x262d63de85365cad7bbd34e07640542430bf09be7748ab2070a5bc706db85c83)
-
-If you change the message, it correctly reverts does not work (see here)[https://stylus-testnet-explorer.arbitrum.io/tx/0xf4bda5bb1b48fa7cbe3eb8063848f58bb9e211f664e4b5ff2d0b6a046bc5be96/logs]!
+'''
+Using these inputs, [the call](https://stylus-testnet-explorer.arbitrum.io/tx/0x262d63de85365cad7bbd34e07640542430bf09be7748ab2070a5bc706db85c83) does NOT revert.
+If you change the message, it correctly reverts [see here](https://stylus-testnet-explorer.arbitrum.io/tx/0xf4bda5bb1b48fa7cbe3eb8063848f58bb9e211f664e4b5ff2d0b6a046bc5be96/logs)!
