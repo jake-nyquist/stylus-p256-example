@@ -4,3 +4,6 @@
 [submodule "p256"]
 	path = p256
 	url = https://github.com/oreparaz/p256
+[submodule "wasi-sdk"]
+	path = wasi-sdk
+	url = https://github.com/WebAssembly/wasi-sdk
