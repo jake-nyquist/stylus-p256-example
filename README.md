@@ -30,7 +30,8 @@ The wasisdk compiler seems to ignore the --no-entry flag, unless we use the `-me
 
 ## deploying
 
-install the dependency for cargo-stylus, which is the deployer
+install the dependency for cargo-stylus, which is the deployer library.
+
 ```$ cargo install cargo-stylus```
 
 ```$ cargo stylus deploy --wasm-file-path=out/p256.wasm```
