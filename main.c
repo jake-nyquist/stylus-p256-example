@@ -2,10 +2,10 @@
 #include "./stylus-lib/stylus.h"
 
 ArbResult user_main(uint8_t * args, size_t args_len) {
-    const uint8_t * sig = args;
-    const uint8_t * pk = args + 16;
-    const uint8_t * input = args + 32;
-    const uint64_t length = args_len - 48;
+    const uint8_t * sig = args; // 64 byte sig
+    const uint8_t * pk = args + 64; // 65 byte key 
+    const uint8_t * input = args + 129; // variable length key
+    const uint64_t length = args_len - 129; // length of the key
 
     // call p256_verify on the results
     p256_ret_t res = p256_verify(input, length, sig, pk);
