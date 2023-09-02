@@ -4,7 +4,7 @@ Examples of c code compiled to stylus to verify a ECDSA signature using a standa
 
 This is useful for many use cases because P.256/secp256r1/prime256v1 is much more common than the curve built into the EVM.
 
-As an example, Apple FaceID and webauthn signatures must be verified using this curve.
+As an example, Apple Face ID and webauthn signatures must be verified using this curve.
 
 This repo also includes a sample solidity contract to call the stylus contract.
 
